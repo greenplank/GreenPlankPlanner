@@ -1,0 +1,83 @@
+export const FormDb=[
+{
+    id:1,
+    title:"Basic Shapes",
+    shapes_variations:[
+        {
+            id:1,
+            title:"Basic1",
+            image:"../images/SVG/squaredisplay.png"
+        },
+        {
+            id:2,
+            image:"../images/SVG/cshapedisplay.png"
+        },
+        {
+            id:3,
+            image:"../images/SVG/lshapedisplay.png"
+        },
+        {
+            id:4,
+            image:"../images/SVG/octaldisplay.png"
+        },
+        {
+            id:5,
+            image:"images/SVG/pantagondisplay.png"
+        }
+    ]
+},
+{
+    id:2,
+    title:"Freely modifiable Shapes",
+    modifiable_shapes_variations:[
+        {
+            id:1,
+            image:"../images/SVG/squaredisplay.png"
+        },
+        {
+            id:2,
+            image:"../images/SVG/cshapedisplay.png"
+        },
+        {
+            id:3,
+            image:"../images/SVG/lshapedisplay.png"
+        },
+        {
+            id:4,
+            image:"../images/SVG/octaldisplay.png"
+        },
+        {
+            id:5,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:6,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:7,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:8,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:9,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:10,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:11,
+            image:"images/SVG/pantagondisplay.png"
+        },
+        {
+            id:12,
+            image:"images/SVG/pantagondisplay.png"
+        }
+    ]
+}
+]
