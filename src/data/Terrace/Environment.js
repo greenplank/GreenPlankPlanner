@@ -1,4 +1,4 @@
-export const terraceEnv=[
+export const terraceEnv =[
       {
         id: 1,
         title: 'House',
@@ -6,7 +6,7 @@ export const terraceEnv=[
             {
                 id: 1,
                 title: "Plater",
-                image: '../../images/home_plaster/home_plaster_ad8.jpg',
+                images: '../../images/home_plaster/home_plaster_ad8.jpg',
                 thumbnail: '../../images/plaster.jpg'
 
             },
@@ -28,19 +28,22 @@ export const terraceEnv=[
     {
         id:2,
         title:'Garden',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg"
+        image:"../../images/garden_standard/garden_standard_ad8.jpg",
+        variations:[]
 
     },
     {
         id:3,
         title:'Roof',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg"
+        image:"../../images/garden_standard/garden_standard_ad8.jpg",
+        variations:[]
 
     },
     {
         id:4,
         title:'Balcony',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg"
+        image:"../../images/garden_standard/garden_standard_ad8.jpg",
+        variations:[]
 
     }
 

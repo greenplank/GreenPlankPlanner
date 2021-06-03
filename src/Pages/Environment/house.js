@@ -3,29 +3,18 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import Button from "@material-ui/core/Button";
-import background from "../../images/home_plaster/home_plaster_aa5.jpg";
-import Grid from "@material-ui/core/Grid";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-
-import MuiAccordion from "@material-ui/core/Accordion";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
-import AddIcon from "@material-ui/icons/Add";
 
 import { terraceEnv } from "../../data/Terrace/Environment";
-import {Buttons} from '../Environment/button'
-import {Images} from '../Environment/image'
+
+import Button from "@material-ui/core/Button";
+import background from "../../images/home_plaster/home_plaster_aa5.jpg";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
-
-import { Link } from "react-router-dom";
-
-
 
 import plaster from "../../images/plaster.jpg"
 import border from "../../images/border.jpg"
@@ -115,100 +104,31 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  const AccordionDetails = withStyles((theme) => ({
-    root: {
-      padding: theme.spacing(0),
-    },
-  }))(MuiAccordionDetails);
-  
-  const AccordionSummary = withStyles({
-    root: {
-      backgroundColor: "rgba(0, 0, 0, .03)",
-      borderBottom: "1px solid rgba(0, 0, 0, .125)",
-      marginBottom: -1,
-      minHeight: 56,
-      "&$expanded": {
-        minHeight: 56,
-      },
-    },
-    content: {
-      "&$expanded": {
-        margin: "12px 0",
-      },
-    },
-    expanded: {},
-  })(MuiAccordionSummary);
-  
-  const Accordion = withStyles({
-    root: {
-      border: "1px solid rgba(0, 0, 0, .125)",
-      boxShadow: "none",
-      "&:not(:last-child)": {
-        borderBottom: 0,
-      },
-      "&:before": {
-        display: "none",
-      },
-      "&$expanded": {
-        margin: "auto",
-      },
-      backgroundColor: "transparent",
-    },
-    expanded: {},
-  })(MuiAccordion);
-
-
 
   export default function Houses(){
+
+    {
+      terraceEnv.map((item)=>
+      
+      {item.variations.map((sub)=>{
+      return(
+        <div>
+          <img src={sub.thumbnail} />
+          <p style={{color:"#ffffff"}}>{sub.title}</p>
+        </div>
+      )
+    }
+      )}
+      )
+    }
     
     const classes = useStyles();
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  
-    const [expanded, setExpanded] = React.useState("panel1");
-  
-    const handleChange = (panel) => (event, newExpanded) => {
-      setExpanded(newExpanded ? panel : false);
-    };
 
     return(
-        <div
-        className={classes.root}
-        style={{
-          marginLeft: matchesSM ? ".3em" : matchesMD ? "6em" : "18em",
-          marginRight: matchesSM ? ".5em" : "0.1em",
-        }}
-      >
-        <Accordion
-          style={{
-            boxShadow: "0px 0px 44px 0px rgba(0,0,0,0.75)",
-            webkitBoxShadow: "0px 0px 44px 0px rgba(0,0,0,0.75)",
-            mozBoxShadow: "0px 0px 44px 0px rgba(0,0,0,0.75)",
-          }}
-          elevation={6}
-          square
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-        >
-          <AccordionSummary
-            style={{ backgroundColor: "#569936", color: "white" }}
-          >
-             <AddIcon />
-            <Typography>Environment</Typography>
-          </AccordionSummary>
-          <AccordionDetails style={{ marginBottom: "-1em" }}>
-            <GridList cellHeight={210} spacing={5} cols={3}>
-             
-               
-               {
-                terraceEnv.map(house=>(
-                  <GridListTile cols={0.75} key={house.id}>
-                    <Buttons  house={house}/>
-                  </GridListTile>
-                ))
-              }
-              
+      <GridList cellHeight={210} spacing={5} cols={3}>
               <GridListTile style={{ marginTop: "-2.7em" }} cols={3}>
                 <img src={background} alt="images" />
               </GridListTile>
@@ -254,31 +174,6 @@ const useStyles = makeStyles((theme) => ({
                   </CardActions>
                 </Card>
               </GridListTile>
-            </GridList>
-          </AccordionDetails>
-        </Accordion>
-        <GridList cellHeight={210} cols={3}>
-          <GridListTile cols={1.5}>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/"
-              className={classes.newButton1}
-            >
-              Back
-            </Button>
-          </GridListTile>
-          <GridListTile cols={1.5}>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/decking"
-              className={classes.newButton1}
-            >
-              Next
-            </Button>
-          </GridListTile>
-        </GridList>
-      </div>
+              </GridList>
     )
   }

@@ -1,61 +1,60 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import background from "../../images/roof_standard/roof_standard_aa5.jpg";
 
-import Roofs from '../../components/Environments/roof'
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
 
 
 const useStyles = makeStyles((theme) => ({
-  background: {
-    backgroundImage: `url(${background})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundAttachment: "fixed",
-    backgroundRepeat: "no-repeat",
-    height: "15em",
-    width: "100%",
-    [theme.breakpoints.down("md")]: {
+
+    background: {
       backgroundImage: `url(${background})`,
-      backgroundAttachment: "inherit",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+      backgroundRepeat: "no-repeat",
+      height: "15em",
+      width: "100%",
+      [theme.breakpoints.down("md")]: {
+        backgroundImage: `url(${background})`,
+        backgroundAttachment: "inherit",
+      },
     },
-  },
+    newImg: {
+      marginTop: "-2.3em",
+    },
+    root: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      overflow: "hidden",
+      backgroundColor: null,
+      justifyItems: "flex-end",
+    },
+    gridList: {
+      width: 500,
+      height: 450,
+    },
+    media: {
+      height: 100,
+    },
+  }));
+  
 
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: null,
-    justifyItems: "flex-end",
+  export default function Roofs() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  
+    return(
+            <GridList cellHeight={210} spacing={6} cols={3}>
+              <GridListTile style={{ marginTop: "-.1em" }} cols={3}>
+                <img src={background} alt="images" />
+              </GridListTile>
+            </GridList>
+    )
   }
-}));
-
-export default function Roof() {
-  const ter_hous_variation_images=[
-    {
-     id:1,
-     img:"../../../images/home_board/home_board_aa5.jpg",
-     title:"plaster",
-     name:"img"
-  }]
-  const classes = useStyles();
-  const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-
-
-  return (
-    <Grid
-      container
-      alignItems="center"
-      justify={matchesSM ? "center" : "space-between"}
-      className={classes.background}
-      direction={matchesSM ? "column" : "row"}
-    >
-      <Roofs/>
-    </Grid>
-  );
-}
