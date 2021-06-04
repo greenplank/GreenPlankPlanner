@@ -1,86 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { createContext } from "react";
-import { toast } from "react-toastify";
 
+const getLocalTerraceItems = () => {
+  try {
+    const list = localStorage.getItem("TerraceEnvironment");
+    if (list === null) {
+      return null;
+    } else {
+      return JSON.parse(list);
+    }
+  } catch (err) {
+    return null;
+  }
+};
 
-export const SelectionContext = createContext();
+export const TerraceContext = createContext();
 
-export default function CartProvider(props) {
-  const [selectedTerraceEnv, setSelectedTerraceEnv] = useState(null);
-  const [cartTotal, setCartTotal] = useState(0);
+export default function TerraceProvider(props) {
+  const [selectedTerraceEnv, setSelectedTerraceEnv] = useState(getLocalTerraceItems() || {envId: 1, varId: 1});
 
   useEffect(() => {
-    const Total = cartItems.reduce(
-      (sum, item) => sum + item.price * item.cartQuantity,
-      0
-    );
-    setCartTotal(Total);
-    localStorage.setItem("nexusberryCart", JSON.stringify(cartItems));
-  }, [cartItems]);
+    localStorage.setItem("TerraceEnvironment", JSON.stringify(selectedTerraceEnv));
+  }, [selectedTerraceEnv]);
 
 
-
-  // Add Product To Cart
-  const addToCart = (item, quantity = 1, selectedDrink = "Coke") => {
-    const index = cartItems.findIndex(
-      itm => itm.id === item.id && itm.drink === selectedDrink
-    );
-    if (index === -1) {
-      const product = { ...item, cartQuantity: quantity, drink: selectedDrink };
-      setCartItems([...cartItems, product]);
-    }
-    else{
-      const copyCart = [...cartItems];
-      copyCart[index].cartQuantity += quantity;
-      setCartItems(copyCart);
-    }
+  const onEnvChange = (envId, varId) => {
+    setSelectedTerraceEnv({envId, varId});
   };
 
-
-  // Incremen or Decrement Quantity
-  const updateQuantity = (item, delta) => {
-    const copyCart = [...cartItems];
-    const index = copyCart.findIndex(itm => itm.id === item.id && itm.drink === item.drink);
-    copyCart[index].cartQuantity += delta;
-    setCartItems(copyCart);
+  const onEnvVarChange = (varId) => {
+    setSelectedTerraceEnv({...selectedTerraceEnv, varId});
   };
-
-  
-  const removeFromCart = item => {
-    setCartItems(
-      cartItems.filter(e => {
-        if(e.id === item.id)
-          return e.drink !== item.drink ? true : false;
-        else
-          return true;
-      }
-    ))
-  };
-
-  const totalCartItems = cartItems.reduce(
-    (sum, item) => sum + item.cartQuantity,
-    0
-  );
-
-  const unitsInCart = item => cartItems.reduce(
-      (sum, e) => (e.id === item.id ? sum + e.cartQuantity : sum),
-      0
-    );
 
   return (
-    <CartContext.Provider
+    <TerraceContext.Provider
       value={{
         ...props,
-        cartTotal,
-        cartItems,
-        addToCart,
-        removeFromCart,
-        updateQuantity,
-        unitsInCart,
-        totalCartItems,
+        selectedTerraceEnv,
+        onEnvChange,
+        onEnvVarChange
       }}
     >
       {props.children}
-    </CartContext.Provider>
+    </TerraceContext.Provider>
   );
 }

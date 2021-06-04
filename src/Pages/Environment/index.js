@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import CheckIcon from "@material-ui/icons/Check";
 
 import Button from "@material-ui/core/Button";
 import background from "../../images/home_plaster/home_plaster_aa5.jpg";
@@ -19,7 +18,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { terraceEnv } from "../../data/Terrace/Environment";
 
 import { useContext } from "react";
-import  ContextProvider from "../../helpers/ContextProvider";
+import  TerraceContext from "../../helpers/ContextProvider";
 
 import { Link } from "react-router-dom";
 
@@ -155,9 +154,9 @@ const Accordion = withStyles({
   expanded: {},
 })(MuiAccordion);
 
-export default function Index() {
+export default function Index(props) {
   let [selectedTerraceEnv, setSelectedTerraceEnv] = useState([]);
-  const [on_update_scene,scene]=useState();
+
   
   const classes = useStyles();
     const theme = useTheme();
@@ -170,7 +169,7 @@ export default function Index() {
       setExpanded(newExpanded ? panel : false);
     };
   
-  // const { btngroup } = useContext(ContextProvider);
+    const {selectedTerraceEnv,onEnvChange, onEnvVarChange} = useContext(TerraceContext);
 
   return (
     <Grid
@@ -208,14 +207,14 @@ export default function Index() {
       <GridList cellHeight={210} spacing={5} cols={3}>
 
 
-        {terraceEnv.map((key) => {
+        {terraceEnv.map((env) => {
           return (
             <GridListTile cols={0.75}>
             <button className={classes.newButton3}
               onClick={() => {
-                setSelectedTerraceEnv(key);
+                selectedTerraceEnv(env.id);
               }}
-              key={key}
+              key={env}
             >
               {key.title}
             </button>
@@ -223,7 +222,7 @@ export default function Index() {
           );
         })}
     
-        {terraceEnv[selectedTerraceEnv].variations.length ? (
+        {/* {terraceEnv[selectedTerraceEnv].variations.length ? (
           terraceEnv[selectedTerraceEnv].variations.map(vari => {
             return (
               <div
@@ -252,7 +251,7 @@ export default function Index() {
           })
         ) : (
           <p>No Variatian avaliable at the moment</p>
-        )}
+        )} */}
      
     
       {/* {

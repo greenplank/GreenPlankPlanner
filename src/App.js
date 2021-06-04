@@ -18,7 +18,6 @@ import React from "react";
 function App() {
   return (
     <React.Fragment>
-      <Router>
         <NavBar />
         <div className="pages">
           <Switch>
@@ -37,7 +36,6 @@ function App() {
 
           </Switch>
         </div>
-      </Router>
     </React.Fragment>
   );
 }
