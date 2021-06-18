@@ -1,14 +1,13 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
+import React,{useState,useEffect} from "react";
+import { makeStyles, useTheme, withStyles ,} from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
 import { terraceEnv } from "../../data/Terrace/Environment";
 
 import Button from "@material-ui/core/Button";
-import background from "../../images/home_plaster/home_plaster_aa5.jpg";
 import GridList from "@material-ui/core/GridList";
+import Grid from "@material-ui/core/Grid";
 import GridListTile from "@material-ui/core/GridListTile";
 
 import Card from "@material-ui/core/Card";
@@ -16,164 +15,93 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 
-import plaster from "../../images/plaster.jpg"
-import border from "../../images/border.jpg"
-import brick from "../../images/brick.jpg"
+
 
 const useStyles = makeStyles((theme) => ({
-    background: {
-      backgroundImage: `url(${background})`,
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
-      backgroundRepeat: "no-repeat",
-      height: "15em",
-      width: "100%",
-      [theme.breakpoints.down("md")]: {
-        backgroundImage: `url(${background})`,
-        backgroundAttachment: "inherit",
-      },
-    },
-    margin: {
-      margin: theme.spacing(1),
-    },
-    newButton: {
-      paddingTop: ".6em",
-      paddingBottom: ".6em",
-      paddingRight: "1em",
-      paddingLeft: "1em",
-      borderRadius: 0,
-      fontSize: ".3em",
-      borderRadius: ".3em",
-    },
-    newButton2: {
-      paddingTop: ".6em",
-      paddingBottom: ".6em",
-      paddingRight: "1.7em",
-      paddingLeft: "1.7em",
-      borderRadius: 0,
-      fontSize: ".3em",
-      borderRadius: ".3em",
-    },
-    newButton3: {
-      paddingTop: ".6em",
-      paddingBottom: ".6em",
-      paddingRight: "1.3em",
-      paddingLeft: "1.3em",
-      borderRadius: 0,
-      fontSize: ".3em",
-      borderRadius: ".3em",
-    },
-    newButton4: {
-      paddingTop: ".6em",
-      paddingBottom: ".6em",
-      paddingRight: "1.8em",
-      paddingLeft: "1.8em",
-      borderRadius: 0,
-      fontSize: ".3em",
-      borderRadius: ".3em",
-    },
-    newButton1: {
-      height: 60,
-      width: 200,
-      borderRadius: 0,
-      fontSize: ".3em",
-      color: "white",
-      backgroundColor: "#569936",
-      "&:hover": {
-        backgroundColor: "#000",
-      },
-    },
-    newImg: {
-      marginTop: "-2.3em",
-    },
-    root: {
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-around",
-      overflow: "hidden",
-      backgroundColor: null,
-      justifyItems: "flex-end",
-    },
     gridList: {
       width: 500,
-      height: 450,
+      height: 450
     },
     media: {
-      height: 100,
+      height: 100
     },
   }));
 
 
-  export default function Houses(){
+  export default function Houses({selectedEnvId=1,setSelectedEnvVarId=()=>{},selectedEnvVarId,setImg=()=>{}}){
 
-    {
-      terraceEnv.map((item)=>
-      
-      {item.variations.map((sub)=>{
-      return(
-        <div>
-          <img src={sub.thumbnail} />
-          <p style={{color:"#ffffff"}}>{sub.title}</p>
-        </div>
-      )
-    }
-      )}
-      )
-    }
-    
     const classes = useStyles();
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+    const [bgImage,setBgImg]=useState('');
+
+    useEffect(() => {
+      let background = terraceEnv.find(env =>env.id===selectedEnvId);
+      let variations = background.variations;
+      let selectedVaritation = variations?.find(vari=>vari.id===selectedEnvVarId);
+      setBgImg(selectedVaritation?.image);
+      setImg(selectedVaritation?.image);
+    }, [] );
+
+    useEffect(() => {
+      let background = terraceEnv.find(env =>env.id===selectedEnvId);
+      if(background.id>1){
+      
+        setBgImg(background.image);
+        setImg(background.image);
+      }
+      else{
+        let background = terraceEnv.find(env =>env.id===selectedEnvId);
+      let variations = background.variations;
+      let selectedVaritation = variations.find(vari=>vari.id===selectedEnvVarId);
+      setBgImg(selectedVaritation.image);
+      setImg(selectedVaritation.image)
+      }
+    }, [selectedEnvId,selectedEnvVarId] );
+
+    
 
     return(
-      <GridList cellHeight={210} spacing={5} cols={3}>
-              <GridListTile style={{ marginTop: "-2.7em" }} cols={3}>
-                <img src={background} alt="images" />
-              </GridListTile>
-              <GridListTile cols={1}>
-                <Card style={{ border: "2px solid grey", boxShadow: "1" }}>
+      <Grid container direction="column">
+         <Grid item>
+         <Grid container direction="row">
+           <Grid item lg>
+           <img src={bgImage} alt="images" width="400px" height="200px"/>
+           </Grid>
+         </Grid>
+        </Grid>
+        <Grid item>
+        {
+          terraceEnv.map(({title='someting',variations=[],id})=>{
+          
+           if(id===selectedEnvId) 
+           return (
+            <Grid container direction="row" >
+             {variations.map(({thumbnail="",title:mapTitle='something else',id,image})=>{ 
+               return(
+                <Grid item lg={4} onClick={()=>{
+                  setBgImg(image)
+                  setSelectedEnvVarId(id)}}>
+                 <Card style={{ border: "2px solid grey", boxShadow: "1" }}>
                   <CardActionArea>
-                    <CardMedia className={classes.media} image={plaster} />
+                    <CardMedia className={classes.media} image={thumbnail} />
                   </CardActionArea>
                   <CardActions>
                     <Button size="small" color="primary">
-                      Plaster
+                      {mapTitle}
                     </Button>
                   </CardActions>
-                </Card>
-              </GridListTile>
-              <GridListTile cols={1}>   
-                <Card style={{ border: "2px solid grey", boxShadow: "1" }}>
-                  <CardActionArea>
-                    <CardMedia className={classes.media} image={brick} />
-                  </CardActionArea>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Clinker
-                    </Button>
-                  </CardActions>
-                </Card>
-              </GridListTile>
-              <GridListTile cols={1}>
-                <Card
-                  style={{
-                    border: "2px solid grey",
-                    boxShadow: "1",
-                    color: "black",
-                  }}
-                >
-                  <CardActionArea>
-                    <CardMedia className={classes.media} image={border} />
-                  </CardActionArea>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Board
-                    </Button>
-                  </CardActions>
-                </Card>
-              </GridListTile>
-              </GridList>
+                 </Card>
+                </Grid>
+               );
+             })}
+       </Grid>
+          )
+        })
+        }
+        </Grid>
+        </Grid>
+        
     )
   }

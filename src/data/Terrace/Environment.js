@@ -1,3 +1,4 @@
+import Images from "../../constents/images";
 export const terraceEnv =[
       {
         id: 1,
@@ -6,21 +7,21 @@ export const terraceEnv =[
             {
                 id: 1,
                 title: "Plater",
-                images: '../../images/home_plaster/home_plaster_ad8.jpg',
-                thumbnail: '../../images/plaster.jpg'
+                image: Images.plasterbg,
+                thumbnail: Images.plaster
 
             },
             {
                 id: 2,
                 title: "Clinker",
-                image: '../../images/home_brick/home_brick_ad8.jpg',
-                thumbnail: '../../images/brick.jpg'
+                image: Images.homebrickbg,
+                thumbnail: Images.homeBrick
             },
             {
                 id: 3,
                 title: "Board",
-                image: '../../images/home_board/home_board_ad8.jpg',
-                thumbnail: '../../images/border.jpg'
+                image: Images.boardbg,
+                thumbnail: Images.board
             },
         ]
        
@@ -28,23 +29,18 @@ export const terraceEnv =[
     {
         id:2,
         title:'Garden',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg",
-        variations:[]
-
+        image:Images.gardenbg,
     },
     {
         id:3,
         title:'Roof',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg",
-        variations:[]
-
+        image:Images.roofbg,
     },
     {
         id:4,
         title:'Balcony',
-        image:"../../images/garden_standard/garden_standard_ad8.jpg",
-        variations:[]
-
+        image:Images.balconybg,
+    
     }
 
 ]

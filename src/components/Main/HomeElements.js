@@ -82,4 +82,21 @@ export const HomeBtn = styled.button`
     color: #000;
   }
 `;
+export const Buttons = styled.button`
+  font-size: 1.4rem;
+  padding: 1rem 4rem;
+  margin-right:.4em;
+  border-radius:0;
+  background: #369956;
+  color: #fff;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background: #000;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    color: #fff;
+  }
+`;
+
 

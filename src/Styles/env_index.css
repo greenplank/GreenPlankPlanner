@@ -1,0 +1,51 @@
+.background {
+  background-position: "center";
+  background-size: "cover";
+  background-attachment: "fixed";
+  background-repeat: "no-repeat";
+  height: "15em";
+  width: "100%";
+}
+
+.envButton {
+    padding-top: .6em;
+    padding-bottom: .6em;
+    padding-right: 1.3em;
+    padding-left: 1.3em;
+    border-radius: 0;
+    font-size: .3em;
+    border-radius: .3em;
+  }
+  .envButtonSelected {
+    padding-top: .6em;
+    padding-bottom: .6em;
+    padding-right: 1.3em;
+    padding-left: 1.3em;
+    border-radius: 0;
+    font-size: .3em;
+    border-radius: .3em;
+    background-color: #369956;
+  }
+  .newButton1 {
+    height: 60;
+    width: 200;
+    border-radius: 0;
+    font-size: .3em;
+    color: white;
+    background-color: #369956;
+  }
+  .newButton1:hover {
+    background-color: #000,
+  }
+  .root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: null;
+    justify-items: flex-end,
+  }
+  .gridList {
+    width: 500;
+    height: 450;
+  }

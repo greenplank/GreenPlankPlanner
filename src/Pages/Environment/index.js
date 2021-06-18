@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 
 import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
+import { useTheme, withStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-
-import Button from "@material-ui/core/Button";
-import background from "../../images/home_plaster/home_plaster_aa5.jpg";
 import Grid from "@material-ui/core/Grid";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
+import {Buttons} from '../../components/Main/HomeElements';
 
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
@@ -18,98 +14,13 @@ import AddIcon from "@material-ui/icons/Add";
 import { terraceEnv } from "../../data/Terrace/Environment";
 
 import { useContext } from "react";
-import  TerraceContext from "../../helpers/ContextProvider";
-
-import { Link } from "react-router-dom";
+import  {TerraceContext} from "../../helpers/ContextProvider";
+import { useHistory } from 'react-router-dom';
 
 import Houses from "../../Pages/Environment/house";
-import Gardens from "../../Pages/Environment/garden";
-import Roofs from "../../Pages/Environment/roof";
-import Balconys from "../../Pages/Environment/balcony";
+import BackgroundImage from "./background";
+import '../../Styles/env_index.css'
 
-const useStyles = makeStyles((theme) => ({
-  background: {
-    backgroundImage: `url(${background})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundAttachment: "fixed",
-    backgroundRepeat: "no-repeat",
-    height: "15em",
-    width: "100%",
-    [theme.breakpoints.down("md")]: {
-      backgroundImage: `url(${background})`,
-      backgroundAttachment: "inherit",
-    },
-  },
-  margin: {
-    margin: theme.spacing(1),
-  },
-  newButton: {
-    paddingTop: ".6em",
-    paddingBottom: ".6em",
-    paddingRight: "1em",
-    paddingLeft: "1em",
-    borderRadius: 0,
-    fontSize: ".3em",
-    borderRadius: ".3em",
-  },
-  newButton2: {
-    paddingTop: ".6em",
-    paddingBottom: ".6em",
-    paddingRight: "1.7em",
-    paddingLeft: "1.7em",
-    borderRadius: 0,
-    fontSize: ".3em",
-    borderRadius: ".3em",
-  },
-  newButton3: {
-    paddingTop: ".6em",
-    paddingBottom: ".6em",
-    paddingRight: "1.3em",
-    paddingLeft: "1.3em",
-    borderRadius: 0,
-    fontSize: ".3em",
-    borderRadius: ".3em",
-  },
-  newButton4: {
-    paddingTop: ".6em",
-    paddingBottom: ".6em",
-    paddingRight: "1.8em",
-    paddingLeft: "1.8em",
-    borderRadius: 0,
-    fontSize: ".3em",
-    borderRadius: ".3em",
-  },
-  newButton1: {
-    height: 60,
-    width: 200,
-    borderRadius: 0,
-    fontSize: ".3em",
-    color: "white",
-    backgroundColor: "#569936",
-    "&:hover": {
-      backgroundColor: "#000",
-    },
-  },
-  newImg: {
-    marginTop: "-2.3em",
-  },
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: null,
-    justifyItems: "flex-end",
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-  },
-  media: {
-    height: 100,
-  },
-}));
 
 const AccordionDetails = withStyles((theme) => ({
   root: {
@@ -154,36 +65,37 @@ const Accordion = withStyles({
   expanded: {},
 })(MuiAccordion);
 
-export default function Index(props) {
-  let [selectedTerraceEnv, setSelectedTerraceEnv] = useState([]);
-
-  
-  const classes = useStyles();
+export default function Index() {
+  const history = useHistory();
     const theme = useTheme();
     const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  
+
+     const [envId,setEnvId] = useState();
+     const [image, setImg] = useState(null);
+
     const [expanded, setExpanded] = React.useState("panel1");
   
     const handleChange = (panel) => (event, newExpanded) => {
       setExpanded(newExpanded ? panel : false);
     };
-  
-    const {selectedTerraceEnv,onEnvChange, onEnvVarChange} = useContext(TerraceContext);
+
+    const {selectedEnvId,selectedEnvVarId,onEnvChange, onEnvVarChange,setSelectedEnvVarId} = useContext(TerraceContext);
 
   return (
     <Grid
       container
       alignItems="center"
       justify={matchesSM ? "center" : "space-between"}
-      className={classes.background}
       direction={matchesSM ? "column" : "row"}
     >
+      <BackgroundImage image={image}/>
        <div
-        className={classes.root}
+        class="root"
         style={{
           marginLeft: matchesSM ? ".3em" : matchesMD ? "6em" : "18em",
           marginRight: matchesSM ? ".5em" : "0.1em",
+          marginTop:"-19em"
         }}
       >
         <Accordion
@@ -198,111 +110,71 @@ export default function Index(props) {
           onChange={handleChange("panel1")}
         >
           <AccordionSummary
-            style={{ backgroundColor: "#569936", color: "white" }}
+            style={{ backgroundColor: "#369956", color: "white" }}
           >
              <AddIcon />
             <Typography>Environment</Typography>
           </AccordionSummary>
-      <AccordionDetails style={{ marginBottom: "-1em" }}>
-      <GridList cellHeight={210} spacing={5} cols={3}>
-
-
-        {terraceEnv.map((env) => {
+      <AccordionDetails>
+      <Grid container direction="column">
+         <Grid item>
+         <Grid container direction="row">
+        {
+        terraceEnv.map(env => {
           return (
-            <GridListTile cols={0.75}>
-            <button className={classes.newButton3}
+            <Grid item lg={3} >
+            <button class={env.id !== envId ? "envButton" : "envButtonSelected"}
               onClick={() => {
-                selectedTerraceEnv(env.id);
-              }}
-              key={env}
+                onEnvChange(env.id)
+                if(env.id!==1){
+                  onEnvVarChange(-1)
+                }else{
+                  onEnvVarChange(1)
+                }
+                setEnvId(env.id)
+              }
+              }
             >
-              {key.title}
+              {env.title}
             </button>
-            </GridListTile>
+            </Grid>
           );
-        })}
-    
-        {/* {terraceEnv[selectedTerraceEnv].variations.length ? (
-          terraceEnv[selectedTerraceEnv].variations.map(vari => {
-            return (
-              <div
-                key={vari.title}
-                onClick={() => on_update_scene(vari.title)}
-                className="img_cont m-2"
-                style={{ position: "relative", cursor: "pointer" }}
-              >
-                <img
-                  style={{ width: "100px", height: "100px" }}
-                  src={vari.image}
-                  alt=""
-                />
-                <p
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    backgroundColor: "rgba(1, 1,1,0.5"
-                  }}
-                  className="m-0 text-light w-100 text-center"
-                >
-                  <small>{vari.title}</small>
-                </p>
-              </div>
-            );
-          })
-        ) : (
-          <p>No Variatian avaliable at the moment</p>
-        )} */}
-     
-    
-      {/* {
-        terraceEnv.map((item)=>
-        <div>
-          <button>{item.title}</button>
-        {item.variations.map((sub)=>{
-        return(
-          <div>
-            <img src={sub.thumbnail} />
-            <p style={{color:"#ffffff"}}>{sub.title}</p>
-          </div>
-        )
-      }
-        )}
+        })
+        }
+        </Grid>
+    </Grid>
 
-        </div>
-        )
-      } */}
-      
+    <Grid item>
 
-       <Houses />
-       {/* <Gardens/> */}
-       {/* <Roofs/> */}
-       {/* <Balconys/> */}
+    <Houses selectedEnvId={selectedEnvId} selectedEnvVarId={selectedEnvVarId} setSelectedEnvVarId={onEnvVarChange} setImg={setImg} />
+  
+    </Grid>
 
-       </GridList>
+       </Grid>
        </AccordionDetails>
         </Accordion>
-        <GridList cellHeight={210} cols={3}>
-          <GridListTile cols={1.5}>
-            <Button
+        <Grid container direction="column">
+        <Grid item>
+         <Grid container direction="row">
+           <Grid item lg={4} style={{marginLeft:"1.5em"}} >
+           <Buttons
               variant="contained"
-              component={Link}
-              to="/"
-              className={classes.newButton1}
+              onClick={()=>history.push("/")}
             >
               Back
-            </Button>
-          </GridListTile>
-          <GridListTile cols={1.5}>
-            <Button
+            </Buttons>
+           </Grid>
+           <Grid item lg={4}>
+           <Buttons
               variant="contained"
-              component={Link}
-              to="/decking"
-              className={classes.newButton1}
+              onClick={()=>history.push("/board")}
             >
               Next
-            </Button>
-          </GridListTile>
-        </GridList>
+            </Buttons>
+           </Grid>
+         </Grid>
+       </Grid>
+       </Grid>
       </div>
     </Grid>
   )

@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog'
 import DiagloContent from '@material-ui/core/DialogContent'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Banner from '../Slider/index'
 import {
   HomeContainer,

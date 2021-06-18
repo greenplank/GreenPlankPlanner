@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
@@ -7,51 +7,36 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
-import background from "../../../images/home_board/home_board_aa5.jpg";
+import background from "../../images/home_board/home_board_aa5.jpg";
 
-import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 
-import Banner from "../../Slider/index";
+import Banner from "../../components/Slider/index";
 
 import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 import TextField from "@material-ui/core/TextField";
-import phoneIcon from "../../../images/phone.svg";
-import emailIcon from "../../../images/email.svg";
-import airplane from "../../../images/send.svg";
+import airplane from "../../images/send.svg";
 
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
-import AddIcon from "@material-ui/icons/Add";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import Divider from "@material-ui/core/Divider";
 
-import { Link } from "react-router-dom";
+import BorderSurfaceImg from "../../images/typeimage/classic_narrow.png"
 
-import img1 from "../../../images/balcony/balcony_standard_aa7.jpg";
-import img2 from "../../../images/balcony/balcony_standard_aa5.jpg";
-import img3 from "../../../images/balcony/balcony_standard_aa6.jpg";
-import img4 from "../../../images/balcony/balcony_standard_aa4.jpg";
-import img5 from "../../../images/balcony/balcony_standard_aa3.jpg";
-import img6 from "../../../images/balcony/balcony_standard_aa2.jpg";
-import img11 from "../../../images/Denmark-min.jpg";
+
+import img4 from "../../images/balcony/balcony_standard_aa4.jpg";
+import img11 from "../../images/Denmark-min.jpg";
+import { board } from "../../data/Terrace/board";
 
 const useStyles = makeStyles((theme) => ({
   learnButton: {
@@ -77,20 +62,13 @@ const useStyles = makeStyles((theme) => ({
       backgroundAttachment: "inherit",
     },
   },
-  backImg: {
-    backgroundImage: `url(${img1})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: "20em",
-    width: "100%",
-  },
   backImg1: {
-    backgroundImage: `url(${img6})`,
+    // backgroundImage: `url(${img6})`,
     backgroundPosition: "center",
+    backgroundColor:"Grey",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "20em",
+    height: "3em",
     marginTop: ".1em",
     width: "100%",
   },
@@ -99,17 +77,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "20em",
+    height: "3em",
     marginTop: ".1em",
     width: "100%",
   },
   backImg3: {
-    backgroundImage: `url(${img5})`,
+    backgroundImage: `url(${BorderSurfaceImg})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "20em",
-    marginTop: "-1.34em",
     width: "100%",
   },
   backImg4: {
@@ -117,8 +94,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "20em",
-    marginTop: "-1.34em",
+    height: "10em",
     width: "100%",
   },
   estimateButton: {
@@ -426,7 +402,7 @@ const SampleOrder = styled.button`
   }
 `;
 
-export default function Decking() {
+export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,setSelectedBoardColorVarId=()=>{},setImg=()=>{}}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -435,11 +411,30 @@ export default function Decking() {
 
   const [open, setOpen] = useState(false);
   const [sampleOpen, setSampleOpen] = useState(false);
+  const [colorId,setColorId] =useState(1);
 
   const [expanded, setExpanded] = React.useState("panel1");
   const [state, setState] = useState([]);
 
-  const [stateForm, setStateForm] = useState({ age: "" });
+  const [bgImage,setBgImg]=useState('');
+  const [boardthumbnail,setBoardThumbnail]=useState('');
+
+  useEffect(() => {
+    let background = board.find(env =>env.id===selectedBoardId);
+    setBoardThumbnail(background?.thumbnail);
+  }, [] );
+
+  useEffect(() => {
+    let background = board.find(env =>env.id===selectedBoardId);
+    if(background.id>1){
+      setBoardThumbnail(background.thumbnail);
+    }
+    else{
+      let background = board.find(env =>env.id===selectedBoardId);
+      setBoardThumbnail(background.thumbnail);
+    }
+  }, [selectedBoardId,selectedBoardColorVarId] );
+
 
   const [name, setName] = useState("");
 
@@ -502,137 +497,115 @@ export default function Decking() {
   );
 
   return (
-    <Grid
-      container
-      alignItems="center"
-      justify={matchesSM ? "center" : "space-between"}
-      className={classes.background}
-      direction={matchesSM ? "column" : "row"}
-    >
-      <div
-        className={classes.root}
-        style={{
-          marginLeft: matchesSM ? ".3em" : matchesMD ? "6em" : "18em",
-          marginRight: matchesSM ? ".5em" : "0.1em",
-        }}
-      >
-        <Accordion
-          square
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-        >
-          <AccordionSummary
-            style={{ backgroundColor: "#569936", color: "white" }}
-          >
-            {<AddIcon />}
-            <Typography>Board & Colour</Typography>
-          </AccordionSummary>
-
-          <AccordionDetails
-            square
-            expanded={expanded === "panel1"}
-            onChange={handleChange("panel1")}
-          >
-            <GridList
-              cellHeight={150}
-              spacing={5}
-              className={classes.gridList}
-              cols={3}
-            >
-              <GridListTile cols={1.5}>
-                <Link
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  to="/smartclassic"
-                >
-                  <Button
-                    variant="contained"
-                    className={classes.newButton2}
-                  >
-                    Smart Decking
-                  </Button>
-                </Link>
-              </GridListTile>
-              <GridListTile cols={1.5}>
-                <Link
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  to="/marine60"
-                >
-                  <Button
-                    variant="contained"
-                    style={{ marginTop: "-.4em" }}
-                    className={classes.newButton3}
-                  >
-                    Marine Decking
-                  </Button>
-                </Link>
-              </GridListTile>
-
+    <>
               <GridListTile
                 className={classes.backImg}
                 onClick={() => setOpen(true)}
-                style={{ marginTop: "-1.25em" }}
+                style={{marginTop:"1em"}}
                 cols={3}
               >
+                <Grid container direction="column">
+                <img src={boardthumbnail}/>
                 <PlayCircleOutlineIcon
-                  style={{ color: "white", width: "20em", height: "6em" }}
+                  style={{ marginTop:"-12em",marginLeft:"2em", marginBottom:"3em",color: "white", width: "15em", height: "6em" }}
                 />
+                </Grid>
+              </GridListTile>
+              <GridListTile
+                className={classes.backImg1}
+                style={{ justifyContent: "center" }}
+                cols={1}
+              >
+                {
+                  board.map(({title="Text",planks=[],id})=>{
+
+                    if(id===selectedBoardId) 
+                    return(
+                      <Grid container direction="row" >
+                        {
+                          planks.map(({size='give size',id,image=""})=>{
+                            return(
+                          <Grid container direction="column">
+                            <Grid item lg={6}>
+                           <img src={image}/>
+                           <Typography
+                           style={{ marginTop:"-1.8em",color: "black" }}
+                           variant="h5">
+                           {size}
+                         </Typography>
+                         </Grid>
+                         </Grid>
+                            )
+                          })
+                        }
+                      </Grid>
+                    )                  
+                  })
+                }
+              </GridListTile>
+
+              <GridListTile
+                style={{ marginTop: ".4em", marginLeft: ".4em" }}
+                cols={0.5}
+              >
+                {
+                  board.map(({title="Text",colors=[],id})=>{
+
+                    if(id===selectedBoardId) 
+                    return(
+                      <Grid container direction="row" >
+                        {
+                          colors.map(({variety='some-text',id,image=""})=>{
+                            return(
+                              <Avatar style={{marginLeft:".2em"}}
+                              onClick={()=>
+                                setColorId(id)
+                              }
+                              alt="releated images"
+                              src={image}
+                              className={classes.avatar}
+                            />
+                            )
+                          })
+                        }
+                      </Grid>
+                    )
+                  })
+                }
+              </GridListTile>
+
+              <GridListTile style={{marginLeft:"5em"}} cols={3}>
+                {
+                  board.map(({title="Text",colors=[],id})=>{
+
+                    if(id===selectedBoardId) 
+                    return(
+                      <Grid container direction="row" >
+                        {
+                          colors.map(({variety='some-text',id})=>{
+                            
+                              if(colorId==id) {
+                                return (<Typography variant="h6">{variety}</Typography>)
+                              }
+                              else{
+                                return(null)
+                              }
+
+                          
+                          })
+                        }
+                      </Grid>
+                    )
+                  })
+                }
               </GridListTile>
         
-              <GridListTile cols={3}>
-                <Card style={{ backgroundColor: "Grey" }}>
-                  <CardContent>
-                    <Typography variant="h6">Border Surface</Typography>
-                  </CardContent>
-                </Card>
-                <Divider />
-              </GridListTile>
-              <GridListTile className={classes.backImg3} cols={1.5}>
-                <Typography
-                  style={{ marginTop: "4.5em", color: "white" }}
-                  variant="h5"
-                >
-                  145mm Classic
-                </Typography>
-              </GridListTile>
-              <GridListTile className={classes.backImg4} cols={1.5}>
-                <Typography
-                  style={{ marginTop: "4.5em", color: "white" }}
-                  variant="h5"
-                >
-                  145mm Classic
-                </Typography>
-              </GridListTile>
-              <GridListTile cols={3}>
+              <GridListTile style={{marginLeft:".5em",marginBottom:"1em"}}  cols={3}>
                 <SampleOrder onClick={() => setSampleOpen(true)}>
                   Sample Order
                 </SampleOrder>
               </GridListTile>
-            </GridList>
-          </AccordionDetails>
-        </Accordion>
-        <GridList cellHeight={210} cols={3}>
-          <GridListTile cols={1.5}>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/index"
-              className={classes.newButton1}
-            >
-              Back
-            </Button>
-          </GridListTile>
-          <GridListTile cols={1.5}>
-            <Button
-              variant="contained"
-              component={Link}
-              to="/form"
-              className={classes.newButton1}
-            >
-              Next
-            </Button>
-          </GridListTile>
-        </GridList>
-      </div>
+    
 
       {/* Gallery Slider Popup */}
       <Dialog
@@ -1240,6 +1213,6 @@ export default function Decking() {
           </Grid>
         </Grid>
       </Dialog>
-    </Grid>
+    </>
   );
 }

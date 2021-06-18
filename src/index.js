@@ -7,13 +7,13 @@ import { BrowserRouter } from "react-router-dom";
 import TerraceProvider from '../src/helpers/ContextProvider'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <TerraceProvider>
+<React.StrictMode>
+  <TerraceProvider>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
-    </TerraceProvider>
-  </React.StrictMode>,
+  </TerraceProvider>
+</React.StrictMode>,
   document.getElementById('root')
 );
 

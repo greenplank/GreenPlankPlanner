@@ -17,28 +17,57 @@ const getLocalTerraceItems = () => {
 export const TerraceContext = createContext();
 
 export default function TerraceProvider(props) {
-  const [selectedTerraceEnv, setSelectedTerraceEnv] = useState(getLocalTerraceItems() || {envId: 1, varId: 1});
+
+    const [selectedEnvId,setSelectedEnvId] = useState(1);
+    const [selectedEnvVarId,setSelectedEnvVarId] = useState(1);
+
+    const [selectedBoardId,setSelectedBoardId] = useState(1);
+    const [selectedBoardColorVarId,setSelectedBoardColorVarId] = useState(1);
+  
 
   useEffect(() => {
-    localStorage.setItem("TerraceEnvironment", JSON.stringify(selectedTerraceEnv));
-  }, [selectedTerraceEnv]);
+    localStorage.setItem("TerraceEnvironment", JSON.stringify(selectedEnvId));
+  }, [selectedEnvId]);
 
 
-  const onEnvChange = (envId, varId) => {
-    setSelectedTerraceEnv({envId, varId});
-  };
+  const onEnvChange=(id)=>{
+    setSelectedEnvId(id);
+  }
+  
+  const onEnvVarChange = (id)=>{
+    setSelectedEnvVarId(id)
+  }
 
-  const onEnvVarChange = (varId) => {
-    setSelectedTerraceEnv({...selectedTerraceEnv, varId});
-  };
+  const onBoardChange=(id)=>{
+    setSelectedBoardId(id);
+  }
+  
+  const onBoardColorVarChange = (id)=>{
+    setSelectedBoardColorVarId(id)
+  }
+  const getEnvId =()=>{
+    return selectedEnvId;
+  }
+  const getVarId =()=>{
+    return selectedEnvVarId;
+  }
+
+
 
   return (
     <TerraceContext.Provider
       value={{
         ...props,
-        selectedTerraceEnv,
+        selectedEnvId,
+        selectedEnvVarId,
+        selectedBoardId,
+        selectedBoardColorVarId,
         onEnvChange,
-        onEnvVarChange
+        onEnvVarChange,
+        onBoardChange,
+        onBoardColorVarChange,
+        getEnvId,
+        getVarId
       }}
     >
       {props.children}

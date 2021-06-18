@@ -1,0 +1,20 @@
+.envButton {
+    padding-top: .6em;
+    padding-bottom: .6em;
+    padding-right: 1.3em;
+    padding-left: 1.3em;
+    border-radius: 0;
+    font-size: .25em;
+    border-radius: .3em;
+  }
+  .envButtonSelected {
+    padding-top: .6em;
+    padding-bottom: .6em;
+    padding-right: 1.3em;
+    box-shadow: 0 0 10px #369956 inset;
+    padding-left: 1.3em;
+    border-radius: 0;
+    font-size: .25em;
+    border-radius: .3em;
+    /* background-color: #369956; */
+  }
