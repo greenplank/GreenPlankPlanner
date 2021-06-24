@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     useEffect(() => {
       let background = terraceEnv.find(env =>env.id===selectedEnvId);
       if(background.id>1){
-      
         setBgImg(background.image);
         setImg(background.image);
       }

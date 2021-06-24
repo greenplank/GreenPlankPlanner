@@ -18,6 +18,8 @@ import AddIcon from "@material-ui/icons/Add";
 
 import BackgroundImg from "../Environment/background.js";
 
+import Shapes from './shape'
+
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import  {TerraceContext} from "../../helpers/ContextProvider";
@@ -110,10 +112,11 @@ export default function FormIndex() {
     setExpanded(newExpanded ? panel : false);
   };
     const [image, setImg] = useState(null);
-
     const {getEnvId,getVarId} = useContext(TerraceContext);
+
     let i = getEnvId();
     let vari = getVarId();
+
   useEffect(()=>{
     if(i!==null){
       let env = terraceEnv.find(a=>a.id===i);
@@ -136,6 +139,7 @@ export default function FormIndex() {
     >
     <BackgroundImg image={image} properties={{backgroundAttachment:"fixed",backgroundPosition:"cente" ,backgroundRepeat: "no-repeat",backgroundColor: 'black',opacity:0.1,width:'100%'}}/>
     <h5 style={{position:"absolute",display:"flex",justifyContent:"center",alignItems:"center",width:"20em",height:"20em",color:"black"}}>Choose the terrace shape</h5>
+    <Shapes/>
       <div
         className={classes.root}
         style={{

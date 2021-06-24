@@ -92,12 +92,6 @@ const AccordionDetails = withStyles((theme) => ({
   },
 }))(MuiAccordionDetails);
 
-const AccordionDetailsFilter = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(0),
-  },
-}))(MuiAccordionDetails);
-
 const AccordionSummary = withStyles({
   root: {
     backgroundColor: "rgba(0, 0, 0, .03)",
@@ -116,19 +110,6 @@ const AccordionSummary = withStyles({
   expanded: {},
 })(MuiAccordionSummary);
 
-const AccordionSummaryFilter = withStyles({
-  root: {
-    flexDirection: "column",
-  },
-  content: {
-    marginBottom: 0,
-  },
-  expandIcon: {
-    marginRight: 0,
-    paddingTop: 0,
-  },
-})(MuiAccordionSummary);
-
 const Accordion = withStyles({
   root: {
     border: "1px solid rgba(0, 0, 0, .125)",
@@ -145,18 +126,6 @@ const Accordion = withStyles({
   },
   expanded: {},
 })(MuiAccordion);
-
-const AccordionFilter = withStyles({
-  root: {
-    border: "3px solid rgba(0, 0, 0, .125)",
-    boxShadow: "none",
-    "&:not(:last-child)": {
-      borderBottom: 30,
-    },
-  },
-  expanded: {},
-})(MuiAccordion);
-
 
 const SampleOrder = styled.button`
   font-size: 1rem;
@@ -181,11 +150,13 @@ export default function Border() {
 
   const [brdId,setBrdId] = useState();
   const [image, setImg] = useState(null);
+  const [plankimg,setPlankImg]=useState();
+  const [planktext,setPlankText]=useState();
+  const [thumbnail,setThumbnail]=useState();
   const [flag,setFlag] =useState(false);
   
 
   const [expanded, setExpanded] = React.useState("panel1");
-
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -257,12 +228,25 @@ export default function Border() {
                   <Button class={brd.id !== brdId ? "envButton" : "envButtonSelected"}
                     variant="contained"
                     onClick={()=>{
+                      debugger;
                       setFlag(true)
                       onBoardChange(brd.id);
                      let envArray = brd.variations.filter(a=>a.Envid===i);
                      if(vari>0){
                       let obj = envArray.find(a=>a.Varid===vari);
                       setImg(obj?.image);
+                      debugger;
+                      let colorsVari=brd.colors;
+                      debugger;
+                      let Variation = colorsVari[0].variations[0];
+                      debugger;
+                      let thumbArray = Variation.thumbnail[0];
+                      let planksArray = Variation.planks[0];
+                      debugger;
+                      setThumbnail(thumbArray?.image)
+                      setPlankImg(planksArray?.image);
+                      setPlankText(planksArray?.size)
+                      console.log(thumbArray);
                      }
                      else{
                        setImg(envArray[0].image);
@@ -278,7 +262,7 @@ export default function Border() {
                     })
                   }
                   
-              <SmartClassic selectedBoardId={selectedBoardId} selectedBoardColorVarId={selectedBoardColorVarId} setSelectedBoardColorVarId={onBoardColorVarChange} setImage={setImg}/>
+              <SmartClassic textPlank={planktext} thumbnailImage={thumbnail} plankImage={plankimg} selectedBoardId={selectedBoardId} selectedBoardColorVarId={selectedBoardColorVarId} setSelectedBoardColorVarId={onBoardColorVarChange} selectedThumbnail={setThumbnail} selectedPlanks={setPlankImg} selectedPlankText={setPlankText} setImage={setImg}/>
              
             </GridList>
           </AccordionDetails>

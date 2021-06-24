@@ -17,6 +17,41 @@ import SmartClassicAmerican from "../images/colors/smart_classic/Smart-Walnut.pn
 import SmartClassicBeachGrey from  '../images/colors/smart_classic/Classic-Beach-Grey.png';
 import SmartClassicChocolate from '../images/colors/smart_classic/Classic-Chocolate.png';
 
+import PlasterSmartClassicCloudyGrey from '../images/home_plaster/home_plaster_ah6.jpg'
+import HomeBrickSmartClassicCloudyGrey from "../images/home_brick/home_brick_ah6.jpg"
+import BoardSmartClassicCloudyGrey from '../images/home_board/home_board_ah6.jpg'
+import GardenSmartClassicCloudyGrey from "../images/garden_standard/garden_standard_ah6.jpg"
+import RoofSmartClassicCloudyGrey from "../images/roof_standard/roof_standard_ah6.jpg"
+import BalconySmartClassicCloudyGrey from "../images/balcony/balcony_standard_ah6.jpg"
+
+import PlasterSmartClassicIpe from '../images/home_plaster/home_plaster_ah8.jpg'
+import HomeBrickSmartClassicIpe from "../images/home_brick/home_brick_ah8.jpg"
+import BoardSmartClassicIpe from '../images/home_board/home_board_ah8.jpg'
+import GardenSmartClassicIpe from "../images/garden_standard/garden_standard_ah8.jpg"
+import RoofSmartClassicIpe from "../images/roof_standard/roof_standard_ah8.jpg"
+import BalconySmartClassicIpe from "../images/balcony/balcony_standard_ah8.jpg"
+
+import PlasterSmartClassicWalnut from '../images/home_plaster/home_plaster_ah7.jpg'
+import HomeBrickSmartClassicWalnut from "../images/home_brick/home_brick_ah7.jpg"
+import BoardSmartClassicWalnut from '../images/home_board/home_board_ah7.jpg'
+import GardenSmartClassicWalnut from "../images/garden_standard/garden_standard_ah7.jpg"
+import RoofSmartClassicWalnut from "../images/roof_standard/roof_standard_ah7.jpg"
+import BalconySmartClassicWalnut from "../images/balcony/balcony_standard_ah7.jpg"
+
+import PlasterSmartClassicBeachGrey from '../images/home_plaster/home_plaster_ad8.jpg'
+import HomeBrickSmartClassicBeachGrey from "../images/home_brick/home_brick_ad8.jpg"
+import BoardSmartClassicBeachGrey from '../images/home_board/home_board_ad8.jpg'
+import GardenSmartClassicBeachGrey from "../images/garden_standard/garden_standard_ad8.jpg"
+import RoofSmartClassicBeachGrey from "../images/roof_standard/roof_standard_ad8.jpg"
+import BalconySmartClassicBeachGrey from "../images/balcony/balcony_standard_ad8.jpg"
+
+import PlasterSmartClassicChocolate from '../images/home_plaster/home_plaster_ah5.jpg'
+import HomeBrickSmartClassicChocolate from "../images/home_brick/home_brick_ah5.jpg"
+import BoardSmartClassicChocolate from '../images/home_board/home_board_ah5.jpg'
+import GardenSmartClassicChocolate from "../images/garden_standard/garden_standard_ah5.jpg"
+import RoofSmartClassicChocolate from "../images/roof_standard/roof_standard_ah5.jpg"
+import BalconySmartClassicChocolate from "../images/balcony/balcony_standard_ag5.jpg"
+
 import PlasterRegular from  '../images/home_plaster/home_plaster_ae8.jpg';
 import HomeBrickRegular from "../images/home_brick/home_brick_ae8.jpg";
 import BoardRegular from '../images/home_board/home_board_ae8.jpg';
@@ -146,6 +181,15 @@ import MarineArtPlank from "../images/planks/marine-art-plank.png";
 import MarineArtRusticBrown from '../images/colors/marine_art/Rustic-Brown.png';
 import MarineArtRusticGrey from '../images/colors/marine_art/Rustic-Grey.png';
 
+/**Form Shapes **/
+import SquareShape from '../images/shapes/squaredisplay.png';
+import CShape from '../images/shapes/cshapedisplay.png';
+import DSquareShape from '../images/shapes/dsquaredisplay.png';
+import IShape from '../images/shapes/lshapedisplay.png';
+import OctalShape from '../images/shapes/octaldisplay.png';
+import PantagonShape from '../images/shapes/pantagondisplay.png'
+
+
 const images={
     plaster:Plaster,
     plasterbg:PlasterBg,
@@ -165,6 +209,41 @@ const images={
     smartclassicAmerican:SmartClassicAmerican,
     smartclassicBeachGrey:SmartClassicBeachGrey,
     smartclassicChocolate:SmartClassicChocolate,
+
+    plastersmartclassiccloudygrey:PlasterSmartClassicCloudyGrey,
+    homebricksmartclassiccloudygrey:HomeBrickSmartClassicCloudyGrey,
+    boardsmartclassiccloudygrey:BoardSmartClassicCloudyGrey,
+    gardensmartclassiccloudygrey:GardenSmartClassicCloudyGrey,
+    roofsmartclassiccloudygrey:RoofSmartClassicCloudyGrey,
+    balconysmartclassiccloudygrey:BalconySmartClassicCloudyGrey,
+
+    plastersmartclassicIpe:PlasterSmartClassicIpe,
+    homebricksmartclassicIpe:HomeBrickSmartClassicIpe,
+    boardsmartclassicIpe:BoardSmartClassicIpe,
+    gardensmartclassicIpe:GardenSmartClassicIpe,
+    roofsmartclassicIpe:RoofSmartClassicIpe,
+    balconysmartclassicIpe:BalconySmartClassicIpe,
+
+    plastersmartclassicWalnut:PlasterSmartClassicWalnut,
+    homebricksmartclassicWalnut:HomeBrickSmartClassicWalnut,
+    boardsmartclassicWalnut:BoardSmartClassicWalnut,
+    gardensmartclassicWalnut:GardenSmartClassicWalnut,
+    roofsmartclassicWalnut:RoofSmartClassicWalnut,
+    balconysmartclassicWalnut:BalconySmartClassicWalnut,
+
+    plastersmartclassicBeachGrey:PlasterSmartClassicBeachGrey,
+    homebricksmartclassicBeachGrey:HomeBrickSmartClassicBeachGrey,
+    boardsmartclassicBeachGrey:BoardSmartClassicBeachGrey,
+    gardensmartclassicBeachGrey:GardenSmartClassicBeachGrey,
+    roofsmartclassicBeachGrey:RoofSmartClassicBeachGrey,
+    balconysmartclassicBeachGrey:BalconySmartClassicBeachGrey,
+
+    plastersmartclassicChocolate:PlasterSmartClassicChocolate,
+    homebricksmartclassicChocolate:HomeBrickSmartClassicChocolate,
+    boardsmartclassicChocolate:BoardSmartClassicChocolate,
+    gardensmartclassicChocolate:GardenSmartClassicChocolate,
+    roofsmartclassicChocolate:RoofSmartClassicChocolate,
+    balconysmartclassicChocolate:BalconySmartClassicChocolate,
 
     plasterregular:PlasterRegular,
     homebrickregular:HomeBrickRegular,
@@ -293,8 +372,15 @@ const images={
     marineartThumbnail:MarineArtThumbnail,
     marineartPlank:MarineArtPlank,
     marineartRusticBrown:MarineArtRusticBrown,
-    marineartRusticGrey:MarineArtRusticGrey
+    marineartRusticGrey:MarineArtRusticGrey,
 
+    /*Shapes Images */
+    squareShape:SquareShape,
+    cShape:CShape,
+    dSquareShape:DSquareShape,
+    iShape:IShape,
+    octalShape:OctalShape,
+    pantagonShape:PantagonShape
 
 };
 

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Button from "@material-ui/core/Button";
@@ -17,6 +17,9 @@ import IconButton from "@material-ui/core/IconButton";
 
 import Banner from "../../components/Slider/index";
 
+import { useContext } from "react";
+import  {TerraceContext} from "../../helpers/ContextProvider";
+
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -24,12 +27,11 @@ import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import airplane from "../../images/send.svg";
 
-import MuiAccordion from "@material-ui/core/Accordion";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
-
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import Divider from "@material-ui/core/Divider";
+
+import Thumbnail from "./thumbnail";
+import Planks from "./planks"
 
 import BorderSurfaceImg from "../../images/typeimage/classic_narrow.png"
 
@@ -241,77 +243,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AccordionDetails = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(0),
-  },
-}))(MuiAccordionDetails);
-
-const AccordionDetailsFilter = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(0),
-  },
-}))(MuiAccordionDetails);
-
-const AccordionSummary = withStyles({
-  root: {
-    backgroundColor: "rgba(0, 0, 0, .03)",
-    borderBottom: "1px solid rgba(0, 0, 0, .125)",
-    marginBottom: -1,
-    minHeight: 56,
-    "&$expanded": {
-      minHeight: 56,
-    },
-  },
-  content: {
-    "&$expanded": {
-      margin: "12px 0",
-    },
-  },
-  expanded: {},
-})(MuiAccordionSummary);
-
-const AccordionSummaryFilter = withStyles({
-  root: {
-    flexDirection: "column",
-  },
-  content: {
-    marginBottom: 0,
-  },
-  expandIcon: {
-    marginRight: 0,
-    paddingTop: 0,
-  },
-})(MuiAccordionSummary);
-
-const Accordion = withStyles({
-  root: {
-    border: "1px solid rgba(0, 0, 0, .125)",
-    boxShadow: "none",
-    "&:not(:last-child)": {
-      borderBottom: 0,
-    },
-    "&:before": {
-      display: "none",
-    },
-    "&$expanded": {
-      margin: "auto",
-    },
-  },
-  expanded: {},
-})(MuiAccordion);
-
-const AccordionFilter = withStyles({
-  root: {
-    border: "3px solid rgba(0, 0, 0, .125)",
-    boxShadow: "none",
-    "&:not(:last-child)": {
-      borderBottom: 30,
-    },
-  },
-  expanded: {},
-})(MuiAccordion);
-
 const BtnGroup = styled.div`
   display: flex;
   flex-direction: row;
@@ -402,7 +333,7 @@ const SampleOrder = styled.button`
   }
 `;
 
-export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,setSelectedBoardColorVarId=()=>{},setImg=()=>{}}) {
+export default function SmartClassic({thumbnailImage,plankImage,textPlank,selectedBoardId=1,selectedBoardColorVarId,setSelectedBoardColorVarId=()=>{},setImage=()=>{},selectedPlanks=()=>{},selectedThumbnail=()=>{},selectedPlankText=()=>{}}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -413,11 +344,16 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
   const [sampleOpen, setSampleOpen] = useState(false);
   const [colorId,setColorId] =useState(1);
 
+  const {getEnvId,getVarId} = useContext(TerraceContext);
+  let i = getEnvId();
+  let vari = getVarId();
+
   const [expanded, setExpanded] = React.useState("panel1");
   const [state, setState] = useState([]);
 
-  const [bgImage,setBgImg]=useState('');
   const [boardthumbnail,setBoardThumbnail]=useState('');
+  const [boardplank,setBoardPlank]=useState('');
+  const [boardplanktext,setBoardPlankText]=useState('');
 
   useEffect(() => {
     let background = board.find(env =>env.id===selectedBoardId);
@@ -435,6 +371,28 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
     }
   }, [selectedBoardId,selectedBoardColorVarId] );
 
+  useEffect(()=>{
+    let background = board.find(env =>env.id===selectedBoardId);
+    let colorsVari=background.colors;
+    let Variation = colorsVari[0].variations[0];
+    let thumbArray = Variation.thumbnail[0];
+    let plankArray=Variation.planks[0];
+    selectedThumbnail(thumbArray?.thumbnail);
+    selectedPlanks(plankArray?.image);
+    selectedPlankText(plankArray?.size)
+  },[])
+
+  useEffect(()=>{
+    setBoardThumbnail(thumbnailImage);
+  },[thumbnailImage])
+
+  useEffect(()=>{
+    setBoardPlank(plankImage);
+  },[plankImage])
+
+  useEffect(()=>{
+    setBoardPlankText(textPlank);
+  },[textPlank])
 
   const [name, setName] = useState("");
 
@@ -496,6 +454,7 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
     </React.Fragment>
   );
 
+
   return (
     <>
               <GridListTile
@@ -505,7 +464,7 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
                 cols={3}
               >
                 <Grid container direction="column">
-                <img src={boardthumbnail}/>
+                <Thumbnail image={boardthumbnail}/>
                 <PlayCircleOutlineIcon
                   style={{ marginTop:"-12em",marginLeft:"2em", marginBottom:"3em",color: "white", width: "15em", height: "6em" }}
                 />
@@ -516,32 +475,8 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
                 style={{ justifyContent: "center" }}
                 cols={1}
               >
-                {
-                  board.map(({title="Text",planks=[],id})=>{
-
-                    if(id===selectedBoardId) 
-                    return(
-                      <Grid container direction="row" >
-                        {
-                          planks.map(({size='give size',id,image=""})=>{
-                            return(
-                          <Grid container direction="column">
-                            <Grid item lg={6}>
-                           <img src={image}/>
-                           <Typography
-                           style={{ marginTop:"-1.8em",color: "black" }}
-                           variant="h5">
-                           {size}
-                         </Typography>
-                         </Grid>
-                         </Grid>
-                            )
-                          })
-                        }
-                      </Grid>
-                    )                  
-                  })
-                }
+              <Planks  image={boardplank} size={boardplanktext}/>
+              
               </GridListTile>
 
               <GridListTile
@@ -555,11 +490,31 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
                     return(
                       <Grid container direction="row" >
                         {
-                          colors.map(({variety='some-text',id,image=""})=>{
+                          colors.map(({variety='some-text',id,image="",variations,planks,thumbnail})=>{
+                            debugger;
                             return(
                               <Avatar style={{marginLeft:".2em"}}
-                              onClick={()=>
+                              onClick={()=>{
+                                debugger;
                                 setColorId(id)
+                                let envArray = variations.filter(a=>a.Envid===i);
+                                debugger;
+                                if(vari>0){
+                                 let obj = envArray.find(a=>a.Varid===vari);
+                                 debugger;
+                                 setImage(obj?.image);
+                                 let thumbArray = obj.thumbnail;
+                                 let plankArray = obj.planks;
+                                debugger;
+                                setBoardThumbnail(thumbArray[0]?.image)
+                                setBoardPlank(plankArray[0]?.image)
+                                setBoardPlankText(plankArray[0]?.size)
+                                }
+                                else{
+                                  setImage(envArray[0].image);
+                                }
+                                debugger;
+                              }
                               }
                               alt="releated images"
                               src={image}
@@ -590,8 +545,6 @@ export default function SmartClassic({selectedBoardId=1,selectedBoardColorVarId,
                               else{
                                 return(null)
                               }
-
-                          
                           })
                         }
                       </Grid>

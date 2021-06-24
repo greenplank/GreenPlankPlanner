@@ -23,6 +23,8 @@ export default function TerraceProvider(props) {
 
     const [selectedBoardId,setSelectedBoardId] = useState(1);
     const [selectedBoardColorVarId,setSelectedBoardColorVarId] = useState(1);
+
+    const [selectShape,setSelectShape]=useState();
   
 
   useEffect(() => {
@@ -45,6 +47,11 @@ export default function TerraceProvider(props) {
   const onBoardColorVarChange = (id)=>{
     setSelectedBoardColorVarId(id)
   }
+
+  const onShapeChange=(id)=>{
+    setSelectShape(id);
+  }
+
   const getEnvId =()=>{
     return selectedEnvId;
   }
@@ -62,10 +69,12 @@ export default function TerraceProvider(props) {
         selectedEnvVarId,
         selectedBoardId,
         selectedBoardColorVarId,
+        selectShape,
         onEnvChange,
         onEnvVarChange,
         onBoardChange,
         onBoardColorVarChange,
+        onShapeChange,
         getEnvId,
         getVarId
       }}

@@ -1,0 +1,35 @@
+import Images from "../../constents/images";
+export const form=[
+    {
+        id:1,
+        title:"Square",
+        image:Images.squareShape,
+        variation:[
+        ]
+    },
+    {
+        id:2,
+        title:"C-Shape",
+        image:Images.cShape,
+    },
+    {
+        id:3,
+        title:"D-Square",
+        image:Images.dSquareShape,
+    },
+    {
+        id:4,
+        title:"I-Shape",
+        image:Images.iShape,
+    },
+    {
+        id:5,
+        title:"Octal",
+        image:Images.octalShape,
+    },
+    {
+        id:6,
+        title:"Pantagon",
+        image:Images.pantagonShape,
+    },
+]

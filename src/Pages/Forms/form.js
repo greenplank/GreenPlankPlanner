@@ -1,20 +1,20 @@
-import React from "react";
+import React,{useState} from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 // import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 // import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { form } from "../../data/Terrace/form";
 
-
-import img11 from "../../images/SVG/squaredisplay.png";
-import img12 from "../../images/SVG/cshapedisplay.png";
-import img13 from "../../images/SVG/lshapedisplay.png";
-import img14 from "../../images/SVG/octaldisplay.png";
-import img15 from "../../images/SVG/pantagondisplay.png";
+import { useContext } from "react";
+import  {TerraceContext} from "../../helpers/ContextProvider";
 
 export default function Form() {
   // const theme = useTheme();
   // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const [shapes,setShape]=useState();
+
+  const {selectedEnvId,selectShape,onEnvChange, onShapeChange} = useContext(TerraceContext);
 
   return (
     <>
@@ -24,21 +24,17 @@ export default function Form() {
               </Grid>
               <Grid item>
                 <Grid container direction="row">
-                  <Grid item lg={4}>
-                    <img alt="image" src={img11} />
-                  </Grid>
-                  <Grid item lg={4}>
-                    <img alt="image" src={img12} />
-                  </Grid>
-                  <Grid item lg={4}>
-                    <img alt="image" src={img13} />
-                  </Grid>
-                  <Grid item lg={4}>
-                    <img alt="image" src={img14} />
-                  </Grid>
-                  <Grid item lg={4}>
-                    <img alt="image" src={img15} />
-                  </Grid>
+                {
+                  form.map(fr => {
+                  return (
+                  <Grid item lg={4} key={fr.id} >
+                  <img src={fr.image} onClick={(
+                    onShapeChange(fr.id)
+                  )} />
+                 </Grid>                                                                                                                                                                                                                                                                                                                                  
+                  );
+                  })
+                }
                 </Grid>
               </Grid>
             </Grid>
