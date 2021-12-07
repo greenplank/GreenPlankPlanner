@@ -5,16 +5,15 @@ import Typography from "@material-ui/core/Typography";
 // import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { form } from "../../data/Terrace/form";
 
-import { useContext } from "react";
-import  {TerraceContext} from "../../helpers/ContextProvider";
+// import { useContext } from "react";
+// import  {TerraceContext} from "../../helpers/ContextProvider";
 
-export default function Form() {
+export default function Form({setShapeId=()=>{}}) {
   // const theme = useTheme();
   // const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   // const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const [shapes,setShape]=useState();
 
-  const {selectedEnvId,selectShape,onEnvChange, onShapeChange} = useContext(TerraceContext);
+  // const {selectedEnvId,selectShape,onEnvChange, onShapeChange} = useContext(TerraceContext);
 
   return (
     <>
@@ -28,10 +27,8 @@ export default function Form() {
                   form.map(fr => {
                   return (
                   <Grid item lg={4} key={fr.id} >
-                  <img src={fr.image} onClick={(
-                    onShapeChange(fr.id)
-                  )} />
-                 </Grid>                                                                                                                                                                                                                                                                                                                                  
+                  <img src={fr.image} onClick={()=>setShapeId(fr.id)} />
+                 </Grid>                                                                                                            
                   );
                   })
                 }
@@ -39,6 +36,5 @@ export default function Form() {
               </Grid>
             </Grid>
     </>
-       
   );
 }

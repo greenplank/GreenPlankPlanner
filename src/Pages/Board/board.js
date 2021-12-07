@@ -242,11 +242,10 @@ export default function Border() {
                       debugger;
                       let thumbArray = Variation.thumbnail[0];
                       let planksArray = Variation.planks[0];
-                      debugger;
                       setThumbnail(thumbArray?.image)
                       setPlankImg(planksArray?.image);
+                      debugger;
                       setPlankText(planksArray?.size)
-                      console.log(thumbArray);
                      }
                      else{
                        setImg(envArray[0].image);
@@ -261,7 +260,6 @@ export default function Border() {
                       )
                     })
                   }
-                  
               <SmartClassic textPlank={planktext} thumbnailImage={thumbnail} plankImage={plankimg} selectedBoardId={selectedBoardId} selectedBoardColorVarId={selectedBoardColorVarId} setSelectedBoardColorVarId={onBoardColorVarChange} selectedThumbnail={setThumbnail} selectedPlanks={setPlankImg} selectedPlankText={setPlankText} setImage={setImg}/>
              
             </GridList>

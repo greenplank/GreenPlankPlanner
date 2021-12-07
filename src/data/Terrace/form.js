@@ -9,13 +9,13 @@ export const form=[
     },
     {
         id:2,
-        title:"C-Shape",
-        image:Images.cShape,
+        title:"D-Square",
+        image:Images.dSquareShape,
     },
     {
         id:3,
-        title:"D-Square",
-        image:Images.dSquareShape,
+        title:"C-Shape",
+        image:Images.cShape,
     },
     {
         id:4,
@@ -24,11 +24,6 @@ export const form=[
     },
     {
         id:5,
-        title:"Octal",
-        image:Images.octalShape,
-    },
-    {
-        id:6,
         title:"Pantagon",
         image:Images.pantagonShape,
     },

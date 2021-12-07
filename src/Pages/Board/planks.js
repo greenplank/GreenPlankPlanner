@@ -1,9 +1,8 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-
+  
   const renderplank=(pl,text)=>{
-    
       return(
         <Grid container direction="column">
         <Grid item lg={6}>
@@ -18,6 +17,7 @@ import Typography from "@material-ui/core/Typography";
       );
   }
 
+  debugger;
   export default function Plank({image,size}) {
   
         return(

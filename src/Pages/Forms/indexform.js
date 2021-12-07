@@ -18,7 +18,8 @@ import AddIcon from "@material-ui/icons/Add";
 
 import BackgroundImg from "../Environment/background.js";
 
-import Shapes from './shape'
+import SquareShape from './SquareShape'
+import DSquareShape from './DSquareShape'
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -107,6 +108,7 @@ export default function FormIndex() {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   const [expanded, setExpanded] = React.useState("panel1");
+  const [shapeId,setShapeId]=React.useState(null);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -138,8 +140,13 @@ export default function FormIndex() {
       direction={matchesSM ? "column" : "row"}
     >
     <BackgroundImg image={image} properties={{backgroundAttachment:"fixed",backgroundPosition:"cente" ,backgroundRepeat: "no-repeat",backgroundColor: 'black',opacity:0.1,width:'100%'}}/>
-    <h5 style={{position:"absolute",display:"flex",justifyContent:"center",alignItems:"center",width:"20em",height:"20em",color:"black"}}>Choose the terrace shape</h5>
-    <Shapes/>
+    {shapeId===null && <h5 style={{position:"absolute",display:"flex",justifyContent:"center",alignItems:"center",width:"20em",height:"20em",color:"black"}}>Choose the terrace shape</h5>}
+    <Grid style={{position:"absolute",display:"flex",justifyContent:"center",alignItems:"center",marginLeft:"4em"}}>
+    {shapeId===1 && <SquareShape/>}
+    {shapeId===2 && <DSquareShape/>}
+    </Grid>
+    
+    
       <div
         className={classes.root}
         style={{
@@ -163,7 +170,7 @@ export default function FormIndex() {
           </AccordionSummary>
           <AccordionDetails style={{ marginBottom: "1em", padding:"0 0.5em 0 0.5em" }}>
 
-              <Form/>
+              <Form setShapeId={setShapeId}/>
 
           </AccordionDetails>
         </Accordion>
@@ -179,7 +186,11 @@ export default function FormIndex() {
             </Button>
           </GridListTile>
           <GridListTile cols={1.5}>
-            <Button variant="contained" className={classes.newButton1}>
+            <Button 
+            variant="contained" 
+            component={Link}
+            to="/IndexMail" 
+            className={classes.newButton1}>
               Next
             </Button>
           </GridListTile>

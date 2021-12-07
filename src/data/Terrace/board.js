@@ -49,12 +49,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
@@ -67,12 +67,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
@@ -85,12 +85,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
@@ -102,28 +102,29 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
                         {
-                            Envid: 5,
+                            id:5,
+                            Envid: 3,
                             image:Images.roofsmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
@@ -135,12 +136,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartclassiccloudgreyPlank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartclassiccloudgreythumbnail
                                 }
                             ]
                         },
@@ -153,7 +154,6 @@ export const board=[
                     image: Images.smartclassicIpe,
                     variations: [
                         {
-                            id:1,
                             Envid: 1,
                             Varid:1,
                             image: Images.plastersmartclassicIpe,
@@ -161,17 +161,16 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
                         {
-                            id:2,
                             Envid: 1,
                             Varid:2,
                             image: Images.homebricksmartclassicIpe,
@@ -179,17 +178,16 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
                         {
-                            id:3,
                             Envid: 1,
                             Varid:3,
                             image: Images.boardsmartclassicIpe,
@@ -197,63 +195,60 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
                         {
-                            id:4,
                             Envid: 2,
                             image:Images.gardensmartclassicIpe,
                             planks:[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
                         {
-                            id:5,
                             Envid: 3,
                             image:Images.roofsmartclassicIpe,
                             planks:[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
                         {
-                            id:6,
                             Envid: 4,
                             image:Images.balconysmartclassicIpe,
                             planks:[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartclassicIpeplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartclassicIpethumbnail
                                 }
                             ]
                         },
@@ -273,12 +268,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -290,12 +285,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -307,12 +302,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -323,12 +318,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -339,12 +334,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -355,12 +350,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.smartmarinePlank
+                                    image:Images.smartclassicwalnutplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartmarineThumbnail
+                                    image:Images.smartclassicwalnutthumbnail
                                 }
                             ]
                         },
@@ -380,12 +375,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicBeachGreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -397,12 +392,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicBeachGreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -414,12 +409,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
-                                },
+                                    image:Images.smartclassicBeachGreyplank
+                                }
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -430,12 +425,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicBeachGreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -446,12 +441,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicBeachGreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -462,12 +457,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicBeachGreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicBeachGreythumbnail
                                 }
                             ]
                         },
@@ -487,12 +482,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicChocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicChocolatethumbnail
                                 }
                             ]
                         },
@@ -504,12 +499,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicChocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicChocolatethumbnail
                                 }
                             ]
                         },
@@ -521,12 +516,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicChocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicChocolatethumbnail
                                 }
                             ]
                         },
@@ -537,12 +532,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicChocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicChocolatethumbnail
                                 }
                             ]
                         },
@@ -553,12 +548,12 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicChocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.marinecapThumbnail
+                                    image:Images.smartclassicChocolatethumbnail
                                 }
                             ]
                         },
@@ -569,7 +564,7 @@ export const board=[
                                 {
                                     size:'22*152mm',
                                     category:"normal",
-                                    image:Images.marinecapPlank
+                                    image:Images.smartclassicCh
                                 },
                             ],
                             thumbnail:[
@@ -631,7 +626,6 @@ export const board=[
                     image: Images.smartregularBeachGrey,
                     variations: [
                         {
-                            id:1,
                             Envid: 1,
                             Varid:1,
                             image: Images.plasterbg,
@@ -639,17 +633,16 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
                         {
-                            id:2,
                             Envid: 1,
                             Varid:2,
                             image: Images.homebrickbg,
@@ -657,80 +650,77 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
                         {
-                            id:3,
-                            Envid: 1,
+                            Envid:1,
                             Varid:3,
                             image: Images.boardbg,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
                         {
-                            id:4,
                             Envid: 2,
                             image:Images.gardensmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
                         {
-                            Envid: 5,
+                            Envid: 3,
                             image:Images.roofsmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
                         {
-                            id:6,
                             Envid: 4,
                             image:Images.balconysmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularbeachgreyplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularbeachgreythumbnail
                                 }
                             ]
                         },
@@ -743,7 +733,6 @@ export const board=[
                     image: Images.smartregularChocolate,
                     variations: [
                         {
-                            id:1,
                             Envid: 1,
                             Varid:1,
                             image: Images.plasterbg,
@@ -751,17 +740,16 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
                         {
-                            id:2,
                             Envid: 1,
                             Varid:2,
                             image: Images.homebrickbg,
@@ -769,17 +757,16 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
                         {
-                            id:3,
                             Envid: 1,
                             Varid:3,
                             image: Images.boardbg,
@@ -787,62 +774,60 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
                         {
-                            id:4,
                             Envid: 2,
                             image:Images.gardensmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
                         {
-                            Envid: 5,
+                            Envid: 3,
                             image:Images.roofsmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
                         {
-                            id:6,
                             Envid: 4,
                             image:Images.balconysmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularchocolateplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularchocolatethumbnail
                                 }
                             ]
                         },
@@ -855,7 +840,6 @@ export const board=[
                     image: Images.smartregularCharcoal,
                     variations: [
                         {
-                            id:1,
                             Envid: 1,
                             Varid:1,
                             image: Images.plasterbg,
@@ -863,17 +847,16 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartregularThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
                         {
-                            id:2,
                             Envid: 1,
                             Varid:2,
                             image: Images.homebrickbg,
@@ -881,17 +864,16 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartregularPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
                         {
-                            id:3,
                             Envid: 1,
                             Varid:3,
                             image: Images.boardbg,
@@ -899,62 +881,60 @@ export const board=[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
                         {
-                            id:4,
                             Envid: 2,
                             image:Images.gardensmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
                         {
-                            Envid: 5,
+                            Envid: 3,
                             image:Images.roofsmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
                         {
-                            id:6,
                             Envid: 4,
                             image:Images.balconysmartclassiccloudygrey,
                             planks:[
                                 {
                                     size:'22*142mm',
                                     category:"normal",
-                                    image:Images.smartclassicPlank
+                                    image:Images.smartregularcharcoalplank
                                 },
                             ],
                             thumbnail:[
                                 {
-                                    image:Images.smartclassicThumbnail
+                                    image:Images.smartregularcharcoalthumbnail
                                 }
                             ]
                         },
@@ -4228,7 +4208,7 @@ export const board=[
                     id: 2,
                     variety:"Rustic Grey",
                     category:"grey",
-                    image: Images.MarineArtRusticGrey,
+                    image: Images.marineartRusticGrey,
                     variations: [
                         {
                             id:1,
