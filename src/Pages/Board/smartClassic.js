@@ -371,6 +371,7 @@ export default function SmartClassic({thumbnailImage,plankImage,textPlank,select
     }
   }, [selectedBoardId,selectedBoardColorVarId] );
 
+  debugger;
   useEffect(()=>{
     let background = board.find(env =>env.id===selectedBoardId);
     let colorsVari=background.colors;
@@ -475,6 +476,7 @@ export default function SmartClassic({thumbnailImage,plankImage,textPlank,select
                 style={{ justifyContent: "center" }}
                 cols={1}
               >
+              debugger;
               <Planks  image={boardplank} size={boardplanktext}/>
               
               </GridListTile>
@@ -508,6 +510,7 @@ export default function SmartClassic({thumbnailImage,plankImage,textPlank,select
                                 debugger;
                                 setBoardThumbnail(thumbArray[0]?.image)
                                 setBoardPlank(plankArray[0]?.image)
+                                debugger;
                                 setBoardPlankText(plankArray[0]?.size)
                                 }
                                 else{
@@ -657,7 +660,7 @@ export default function SmartClassic({thumbnailImage,plankImage,textPlank,select
         </AppBar>
         <img src={img11} alt="images" style={{ marginBottom: "4em" }} />
         <Grid item style={{ marginBottom: "2em", fontWeight: 400 }}>
-          <Typography variant="h3" align="center" gutterBottom>
+          <Typography variant="h4" align="center" gutterBottom>
             <span style={{ fontWeight: "bold" }}>Sample Order Form</span>
           </Typography>
         </Grid>

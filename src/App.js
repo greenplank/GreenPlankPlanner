@@ -9,6 +9,9 @@ import Index from "./Pages/Environment/index"
 import SmartClassic from "./Pages/Board/smartClassic"
 import Board from "./Pages/Board/board.js"
 import IndexForm from "./Pages/Forms/indexform"
+import Shapes from './Pages/Forms/shape'
+import Square from './Pages/Forms/SquareShape'
+import IndexMail from './Pages/Mail/IndexMail'
 import React from "react";
 
 function App() {
@@ -25,7 +28,9 @@ function App() {
             <Route exact path="/indexform" component={() => <IndexForm/>} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
-
+            <Route path="/IndexMail" component={IndexMail} />
+            <Route path="/shape" component={Shapes} />
+            <Route path="/SquareShape" component={Square} />
           </Switch>
         </div>
     </React.Fragment>
